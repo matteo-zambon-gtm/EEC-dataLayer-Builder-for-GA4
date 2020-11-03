@@ -15,5 +15,5 @@
 homepage: "https://tagmanageritalia.it/"
 documentation: "https://github.com/matteo-zambon/EEC-dataLayer-Builder-for-GA4/blob/main/README.md"
 versions:
-  - sha: 30a3f267c882c5ffe3f2a4357456bd34d610880e
+  - sha: 2830cbefc6310973fff3ae3f3887b586b502fc04
     changeNotes: Initial Version
