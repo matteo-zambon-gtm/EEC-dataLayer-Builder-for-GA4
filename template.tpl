@@ -1,3 +1,11 @@
+___TERMS_OF_SERVICE___
+
+By creating or modifying this file you agree to Google Tag Manager's Community
+Template Gallery Developer Terms of Service available at
+https://developers.google.com/tag-manager/gallery-tos (or such other URL as
+Google may provide), as modified from time to time.
+
+
 ___INFO___
 
 {
@@ -6,7 +14,11 @@ ___INFO___
   "version": 1,
   "securityGroups": [],
   "displayName": "🐦🐦 EEC dataLayer Builder for GA4",
-  "categories": ["ANALYTICS", "TAG_MANAGEMENT", "UTILITY"]\,
+   "categories": [
+    "ANALYTICS",
+    "UTILITY",
+    "TAG_MANAGEMENT"
+  ],
   "description": "This template converts existing enhanced e-commerce events from Google Universal Analytics to the new GA4 e-commerce events",
   "containerContexts": [
     "WEB"
@@ -45,7 +57,7 @@ ___TEMPLATE_PARAMETERS___
     "subParams": [
       {
         "type": "TEXT",
-        "name": "begin_checkout_step",
+        "name": "beginCheckoutStep",
         "displayName": "begin_checkout",
         "simpleValueType": true,
         "defaultValue": 1,
@@ -65,7 +77,7 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "type": "TEXT",
-        "name": "add_shipping_info_step",
+        "name": "addShippingInfoStep",
         "displayName": "add_shipping_info",
         "simpleValueType": true,
         "defaultValue": 2,
@@ -85,7 +97,7 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "type": "TEXT",
-        "name": "add_payment_info_step",
+        "name": "addPaymentInfoStep",
         "displayName": "add_payment_info",
         "simpleValueType": true,
         "defaultValue": 3,
@@ -105,7 +117,7 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "type": "GROUP",
-        "name": "group_view_cart",
+        "name": "groupViewCart",
         "displayName": "View Cart Event",
         "groupStyle": "NO_ZIPPY",
         "subParams": [
@@ -117,7 +129,7 @@ ___TEMPLATE_PARAMETERS___
           },
           {
             "type": "TEXT",
-            "name": "view_cart_step",
+            "name": "viewCartStep",
             "displayName": "view_cart",
             "simpleValueType": true,
             "enablingConditions": [
@@ -200,10 +212,10 @@ let dLayer = copyFromDataLayer('ecommerce', 1),
     ecommerce, 
     i, 
     returnMode = data.selectReturnValue,
-    view_cart_step = data.view_cart_step,
-    begin_checkout_step = data.begin_checkout_step,
-    add_shipping_info_step = data.add_shipping_info_step,
-    add_payment_info_step = data.add_payment_info_step,
+    view_cart_step = data.viewCartStep,
+    begin_checkout_step = data.beginCheckoutStep,
+    add_shipping_info_step = data.addShippingInfoStep,
+    add_payment_info_step = data.addPaymentInfoStep,
     eventName = '',
     items = [];
 
@@ -594,6 +606,6 @@ setup: ''
 
 ___NOTES___
 
-Created on 11/3/2020, 11:50:52 AM
+Created on 11/3/2020, 12:52:44 PM
 
 
