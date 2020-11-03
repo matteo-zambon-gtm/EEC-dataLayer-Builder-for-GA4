@@ -13,7 +13,7 @@ ___INFO___
   "id": "cvt_temp_public_id",
   "version": 1,
   "securityGroups": [],
-  "displayName": "🐦 EEC dataLayer Builder for GA4", 
+  "displayName": "🐦 EEC dataLayer Builder for GA4",
   "categories": [
     "ANALYTICS",
     "UTILITY",
@@ -220,7 +220,6 @@ let dLayer = copyFromDataLayer('ecommerce', 1),
     items = [];
 
 ecommerce = dLayer;
-
 if(ecommerce === undefined){
   return '';
 }
@@ -232,6 +231,11 @@ if(returnMode == 'items'){
   else if(ecommerce.hasOwnProperty('purchase') && ecommerce.purchase.hasOwnProperty('items')){
     return ecommerce.purchase.items;
   } 
+}
+else if(returnMode == 'event_name'){
+  if(ecommerce.hasOwnProperty('items') || (ecommerce.hasOwnProperty('purchase') && ecommerce.purchase.hasOwnProperty('items'))){
+    return copyFromDataLayer('event', 2);
+  }
 }
 
 if (ecommerce.impressions) {
@@ -584,6 +588,10 @@ ___WEB_PERMISSIONS___
               {
                 "type": 1,
                 "string": "ecommerce.*"
+              },
+              {
+                "type": 1,
+                "string": "event"
               }
             ]
           }
@@ -606,6 +614,6 @@ setup: ''
 
 ___NOTES___
 
-Created on 11/3/2020, 12:55:26 PM
+Created on 11/3/2020, 6:03:12 PM
 
 
