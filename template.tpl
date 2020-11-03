@@ -13,8 +13,8 @@ ___INFO___
   "id": "cvt_temp_public_id",
   "version": 1,
   "securityGroups": [],
-  "displayName": "🐦🐦 EEC dataLayer Builder for GA4",
-   "categories": [
+  "displayName": "🐦 EEC dataLayer Builder for GA4", 
+  "categories": [
     "ANALYTICS",
     "UTILITY",
     "TAG_MANAGEMENT"
@@ -606,6 +606,6 @@ setup: ''
 
 ___NOTES___
 
-Created on 11/3/2020, 12:52:44 PM
+Created on 11/3/2020, 12:55:26 PM
 
 
