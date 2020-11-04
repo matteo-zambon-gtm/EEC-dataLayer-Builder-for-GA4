@@ -1,5 +1,6 @@
 # EEC-dataLayer-Builder-for-GA4
 **Do you use Enhanced Ecommerce Object of Google Universal Analytics in your dataLayer?**
+
 Well, this variable is a smart way to track the GA4 Ecommerce (items).
 
 If you have tracked this:
