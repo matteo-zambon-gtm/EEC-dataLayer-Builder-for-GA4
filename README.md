@@ -49,7 +49,7 @@ Create **"GA4 -Items"** and choose **Mode > Items**
 
 # Create Data Layer variables
 
-For the purchase you have to create 7 Data Layer variables. These are the parameters: 
+For the purchase, you have to create 7 Data Layer variables. These are the parameters: 
 
 - transaction_id
 - affiliation
@@ -59,7 +59,7 @@ For the purchase you have to create 7 Data Layer variables. These are the parame
 - currency
 - coupon
 
-Why do you have to this?
+Why do you have this?
 Because in the GA4 ecommerce object these parameters are outside the __items__ and you have to grab them and use them in the GA4 Tag.
 
 - ecommerce.purchase.actionField.id
@@ -81,7 +81,7 @@ Now, you have to create 2 different custom event triggers:
 
 ## Trigger GA – EEC Events 
 
-This trigger contains all custom events for EEC of Google Universal Analytics. In this example I use WooCommerce and Duracell Tomi plugin.
+This trigger contains all custom events for EEC of Google Universal Analytics. In this example, I use WooCommerce and Duracell Tomi plugin.
 
 This is the list of all custom events:
 
