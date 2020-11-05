@@ -13,6 +13,9 @@ https://developers.google.com/tag-manager/ecommerce-ga4
 
 All custom dimensions and metrics are supported
 
+**Guide step by step:**
+https://www.tagmanageritalia.it/how-to-move-from-enhanced-ecommerce-tracking-to-google-analytics-4-ecommerce-tracking-with-google-tag-manager/
+
 ## All EEC Events and EEC Object are automatically converted to GA4 Ecommerce Events and Object
 
 In the table below all EEC UA Events are converted to GA4 Events
