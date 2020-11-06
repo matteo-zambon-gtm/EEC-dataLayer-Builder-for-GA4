@@ -13,13 +13,13 @@ ___INFO___
   "id": "cvt_temp_public_id",
   "version": 1,
   "securityGroups": [],
-  "displayName": "🐦 EEC dataLayer Builder for GA4",
+  "displayName": "EEC dataLayer Builder for GA4",
   "categories": [
     "ANALYTICS",
     "UTILITY",
     "TAG_MANAGEMENT"
   ],
-  "description": "This template converts existing enhanced e-commerce events from Google Universal Analytics to the new GA4 e-commerce events",
+  "description": "This original template converts existing Enhanced E-commerce events from the “old” version of Google Analytics (Universal Analytics) to the new Google Analytics 4 E-commerce events",
   "containerContexts": [
     "WEB"
   ]
