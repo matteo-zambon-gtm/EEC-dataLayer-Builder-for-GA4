@@ -16,9 +16,11 @@ homepage: "https://www.tagmanageritalia.com/"
 documentation: "https://www.tagmanageritalia.it/how-to-move-from-enhanced-ecommerce-tracking-to-google-analytics-4-ecommerce-tracking-with-google-tag-manager/"
 
 versions:
-  # Latest version
+  # Latest Version
+  - sha: 95244a8fd3f1e9426f87930897cf01b4d3b83244
+    changeNotes: Add Currency on items
+  # Older versions
   - sha: adb912bfd3e9d7fb2c72a90c418c16edebb5874b
     changeNotes: Change name and description and documentation link
-  # Older versions
   - sha: 2da6d63a6a4ae1129915fe59fa67af56274b87d7
     changeNotes: Initial release.
