@@ -160,6 +160,29 @@ ___TEMPLATE_PARAMETERS___
         "type": "EQUALS"
       }
     ]
+  },
+  {
+    "type": "GROUP",
+    "name": "defaultCurrency",
+    "displayName": "Default Currency value",
+    "groupStyle": "ZIPPY_OPEN",
+    "subParams": [
+      {
+        "type": "TEXT",
+        "name": "defaultCurrencyValue",
+        "displayName": "Default Currency",
+        "simpleValueType": true,
+        "help": "Enter the default value to use for the Currency parameter, if it\u0027s not found in the dataLayer \"ecommerce.currencyCode\" path"
+      }
+    ],
+    "help": "Enter the default value to use for the Currency parameter, if it\u0027s not found in the dataLayer",
+    "enablingConditions": [
+      {
+        "paramName": "selectReturnValue",
+        "paramValue": "items",
+        "type": "EQUALS"
+      }
+    ]
   }
 ]
 
@@ -211,17 +234,26 @@ const round = function(price){
 let dLayer = copyFromDataLayer('ecommerce', 1), 
     ecommerce, 
     i, 
+    currencyValue,
     returnMode = data.selectReturnValue,
     view_cart_step = data.viewCartStep,
     begin_checkout_step = data.beginCheckoutStep,
     add_shipping_info_step = data.addShippingInfoStep,
     add_payment_info_step = data.addPaymentInfoStep,
+    default_currency_value = data.defaultCurrencyValue,
     eventName = '',
     items = [];
 
 ecommerce = dLayer;
 if(ecommerce === undefined){
   return '';
+}
+
+if(ecommerce.hasOwnProperty('currencyCode')){
+  currencyValue = ecommerce.currencyCode;
+}
+else{
+  currencyValue = default_currency_value;
 }
 
 if(returnMode == 'items'){
@@ -256,7 +288,8 @@ if (ecommerce.impressions) {
         'item_list_name': product.hasOwnProperty('list') ? product.list : undefined,
         'item_list_id': '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': '1'
+        'quantity': '1',
+        'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
       items.push(item);
@@ -281,7 +314,8 @@ if (ecommerce.click) {
         'item_list_name': product.hasOwnProperty('list') ? product.list : undefined,
         'item_list_id': ecommerce.click.hasOwnProperty('actionField') && ecommerce.click.actionField.hasOwnProperty('list') ? ecommerce.click.actionField.list : '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': '1'
+        'quantity': '1',
+        'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
       items.push(item);
@@ -306,7 +340,8 @@ if (ecommerce.detail) {
         'item_list_name': product.hasOwnProperty('list') ? product.list : undefined,
         'item_list_id': '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': '1'
+        'quantity': '1',
+        'currency': currencyValue
       }; 
       item = parseDimensionsMetrics(product, item);
       items.push(item);
@@ -331,7 +366,8 @@ if (ecommerce.add) {
         'item_list_name': product.hasOwnProperty('list') ? product.list : undefined,
         'item_list_id': '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1
+        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1,
+        'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
       items.push(item);
@@ -356,7 +392,8 @@ if (ecommerce.remove) {
         'item_list_name': product.hasOwnProperty('list') ? product.list : undefined,
         'item_list_id': '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1
+        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1,
+        'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
       items.push(item);
@@ -398,7 +435,8 @@ if (ecommerce.checkout) {
         'item_list_name': '',
         'item_list_id': '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1
+        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1,
+        'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
       items.push(item);
@@ -423,7 +461,8 @@ if (ecommerce.purchase) {
         'item_list_name': '',
         'item_list_id': '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1
+        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1,
+        'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
       items.push(item);
@@ -437,7 +476,8 @@ if (ecommerce.refund) {
       let product = ecommerce.refund.products[i];
       let item = {
         'item_id': product.hasOwnProperty('id') ? product.id : undefined,
-        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1
+        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1,
+        'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
       items.push(item);
@@ -615,5 +655,3 @@ setup: ''
 ___NOTES___
 
 Created on 11/3/2020, 6:03:12 PM
-
-
