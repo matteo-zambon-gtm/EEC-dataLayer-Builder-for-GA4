@@ -196,6 +196,8 @@ const copyFromWindow = require('copyFromWindow');
 const logToConsole = require('logToConsole');
 const copyFromDataLayer = require('copyFromDataLayer');
 const setInWindow = require('setInWindow');
+const makeInteger = require('makeInteger');
+
 const merge = function() {
   const obj = {},
         il = arguments.length;
@@ -288,7 +290,7 @@ if (ecommerce.impressions) {
         'item_list_name': product.hasOwnProperty('list') ? product.list : undefined,
         'item_list_id': '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': '1',
+        'quantity': 1,
         'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
@@ -314,7 +316,7 @@ if (ecommerce.click) {
         'item_list_name': product.hasOwnProperty('list') ? product.list : undefined,
         'item_list_id': ecommerce.click.hasOwnProperty('actionField') && ecommerce.click.actionField.hasOwnProperty('list') ? ecommerce.click.actionField.list : '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': '1',
+        'quantity': 1,
         'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
@@ -340,7 +342,7 @@ if (ecommerce.detail) {
         'item_list_name': product.hasOwnProperty('list') ? product.list : undefined,
         'item_list_id': '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': '1',
+        'quantity': 1,
         'currency': currencyValue
       }; 
       item = parseDimensionsMetrics(product, item);
@@ -366,7 +368,7 @@ if (ecommerce.add) {
         'item_list_name': product.hasOwnProperty('list') ? product.list : undefined,
         'item_list_id': '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1,
+        'quantity': product.hasOwnProperty('quantity') ? makeInteger(product.quantity) : 1,
         'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
@@ -392,7 +394,7 @@ if (ecommerce.remove) {
         'item_list_name': product.hasOwnProperty('list') ? product.list : undefined,
         'item_list_id': '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1,
+        'quantity': product.hasOwnProperty('quantity') ? makeInteger(product.quantity) : 1,
         'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
@@ -435,7 +437,7 @@ if (ecommerce.checkout) {
         'item_list_name': '',
         'item_list_id': '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1,
+        'quantity': product.hasOwnProperty('quantity') ? makeInteger(product.quantity) : 1,
         'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
@@ -461,7 +463,7 @@ if (ecommerce.purchase) {
         'item_list_name': '',
         'item_list_id': '',
         'index': product.hasOwnProperty('position') ? product.position : undefined,
-        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1,
+        'quantity': product.hasOwnProperty('quantity') ? makeInteger(product.quantity) : 1,
         'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
@@ -476,7 +478,7 @@ if (ecommerce.refund) {
       let product = ecommerce.refund.products[i];
       let item = {
         'item_id': product.hasOwnProperty('id') ? product.id : undefined,
-        'quantity': product.hasOwnProperty('quantity') ? product.quantity : 1,
+        'quantity': product.hasOwnProperty('quantity') ? makeInteger(product.quantity) : 1,
         'currency': currencyValue
       };
       item = parseDimensionsMetrics(product, item);
@@ -655,3 +657,5 @@ setup: ''
 ___NOTES___
 
 Created on 11/3/2020, 6:03:12 PM
+
+
