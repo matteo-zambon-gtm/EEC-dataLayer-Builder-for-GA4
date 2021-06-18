@@ -17,9 +17,11 @@ documentation: "https://www.tagmanageritalia.it/how-to-move-from-enhanced-ecomme
 
 versions:
   # Latest Version
+  - sha: d8f16cfb42fd1a16fde31bc8d08df1699532e61d
+    changeNotes: Added makeInteger parsing for quantities
+  # Older versions
   - sha: 8337502cd0b0c39c635a0597e7d5af43412c643a
     changeNotes: Fix from item_category_N to item_categoryN 
-  # Older versions
   - sha: 95244a8fd3f1e9426f87930897cf01b4d3b83244
     changeNotes: Add Currency on items
   - sha: adb912bfd3e9d7fb2c72a90c418c16edebb5874b
